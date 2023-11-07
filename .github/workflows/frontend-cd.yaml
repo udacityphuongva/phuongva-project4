@@ -57,12 +57,12 @@ jobs:
       - name: Build Docker image
         run: |
           cd ./starter/frontend
-          docker build -t frontend:latest --build-arg=REACT_APP_MOVIE_API_URL=${{ vars.REACT_APP_MOVIE_API_URL }} .
+          docker build -t frontend:latest --build-arg=REACT_APP_MOVIE_API_URL=${{ vars.REACT_APP_MOVIE_API_URL }} --build-arg=GIT_COMMIT=$(git rev-parse --short HEAD).
       
       - name: Tag Docker Image
         run: |
           cd ./starter/frontend
-          docker tag frontend:latest 471680674047.dkr.ecr.us-east-1.amazonaws.com/frontend:${IMAGE_TAG}
+          docker tag frontend:latest 471680674047.dkr.ecr.us-east-1.amazonaws.com/frontend:${GIT_COMMIT}
 
       - name: Push Docker image to ECR
         run: |
