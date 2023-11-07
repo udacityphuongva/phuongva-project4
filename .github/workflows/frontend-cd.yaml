@@ -57,7 +57,7 @@ jobs:
       - name: Build Docker image
         run: |
           cd ./starter/frontend
-          docker build -t frontend:latest --build-arg=REACT_APP_MOVIE_API_URL=${{ vars.REACT_APP_MOVIE_API_URL }} --build-arg=GIT_COMMIT=$(git rev-parse --short HEAD).
+          docker build -t frontend:latest --build-arg=REACT_APP_MOVIE_API_URL=${{ vars.REACT_APP_MOVIE_API_URL }} .
       
       - name: Tag Docker Image
         run: |
