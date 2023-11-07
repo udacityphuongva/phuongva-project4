@@ -1,6 +1,7 @@
 FROM  public.ecr.aws/docker/library/node:18.14.2-alpine3.17
 
 ARG REACT_APP_MOVIE_API_URL
+ARG IMAGE_TAG
 ENV REACT_APP_MOVIE_API_URL=${REACT_APP_MOVIE_API_URL}
     REPOSITORY_URI=${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_DEFAULT_REGION}.amazonaws.com/${ECR_REPOSITORY_NAME}
     IMAGE_TAG=$(git rev-parse --short HEAD)
