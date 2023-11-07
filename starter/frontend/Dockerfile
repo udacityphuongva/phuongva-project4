@@ -1,8 +1,9 @@
 FROM  public.ecr.aws/docker/library/node:18.14.2-alpine3.17
 
 ARG REACT_APP_MOVIE_API_URL
-ARG GIT_COMMIT=$(git rev-parse --short HEAD)
+ARG GIT_COMMIT
 ENV REACT_APP_MOVIE_API_URL=${REACT_APP_MOVIE_API_URL}
+    GIT_COMMIT=$(git rev-parse --short HEAD)
 LABEL git_commit=$GIT_COMMIT
     
 WORKDIR /app
