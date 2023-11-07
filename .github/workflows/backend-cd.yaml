@@ -63,12 +63,12 @@ jobs:
       - name: Tag Docker Image
         run: |
           cd ./starter/backend
-          docker tag backend:latest 471680674047.dkr.ecr.us-east-1.amazonaws.com/backend:latest
+          docker tag backend:latest 284969715052.dkr.ecr.us-east-1.amazonaws.com/backend:latest
 
       - name: Push Docker image to ECR
         run: |
           cd ./starter/backend
-          docker push 471680674047.dkr.ecr.us-east-1.amazonaws.com/backend:latest
+          docker push 284969715052.dkr.ecr.us-east-1.amazonaws.com/backend:latest
       
       - name: Kubeconfig Login
         run: |
@@ -79,7 +79,7 @@ jobs:
       - name: Deploy to Kubernetes
         run: |
           cd ./starter/backend/k8s
-          kustomize edit set image backend=471680674047.dkr.ecr.us-east-1.amazonaws.com/backend:latest
+          kustomize edit set image backend=284969715052.dkr.ecr.us-east-1.amazonaws.com/backend:latest
           kustomize build | kubectl apply -f -
           
 
